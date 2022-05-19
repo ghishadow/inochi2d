@@ -4,9 +4,8 @@
     
     Authors: Luna Nielsen
 */
-#version 330
-in vec2 texUVs;
-out vec4 outColor;
+#version 130
+varying vec2 texUVs;
 
 uniform sampler2D tex;
 uniform float threshold;
@@ -14,5 +13,5 @@ uniform float threshold;
 void main() {
     vec4 color = texture(tex, texUVs);
     if (color.a <= threshold) discard;
-    outColor = vec4(1, 1, 1, 1);
+    gl_FragColor = vec4(1, 1, 1, 1);
 }
